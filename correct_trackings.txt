@@ -1,0 +1,634 @@
+Corretos: 632
+
+Agradecimento
+Agradecimento - conteudo
+Agradecimento - origem
+Aguarda transbordo
+Aguarda transbordo - conteudo
+Aguarda transbordo - origem
+Ajuda com internet
+Ajuda com internet - conteudo
+Ajuda com internet - opcoes
+Ajuda com internet - origem
+Ajuda com internet - validacoes
+Ajuda com internet e linha - opcoes
+Apresentacao nina
+Apresentacao nina - origem
+Ap�s atendimento
+Ap�s atendimento - origem
+Assertividade NLP
+Ath dentro da recencia
+Ath dentro da recencia - origem
+Ath fora da recencia
+Ath fora da recencia - conteudo
+Ath fora da recencia - origem
+Aviso email
+Aviso email - origem
+Aviso suspenso
+Aviso suspenso - origem
+Aviso throttling
+Aviso throttling - origem
+Bad talk
+Bad talk - origem
+Bloquear
+Bloquear - conteudo
+Bloquear - origem
+Bloqueio
+Bloqueio - conteudo
+Bloqueio - origem
+Bloqueio chip
+Bloqueio chip - conteudo
+Bloqueio chip - origem
+Boa noite
+Boa noite - origem
+Boa tarde
+Boa tarde - origem
+Boleto negociado desabilitado
+Boleto negociado desabilitado - origem
+Bom dia
+Bom dia - origem
+Cancelamento
+Cancelamento - origem
+Central ajuda
+Central ajuda - origem
+Cliente nextel
+Cliente nextel - origem
+Codigo de barras gerado
+Codigo de barras gerado - origem
+Codigo de barras gerado email cadastrado
+Codigo de barras gerado email cadastrado - conteudo
+Codigo de barras gerado email cadastrado - origem
+Codigo de barras nao gerado - conteudo
+Codigo sms
+Codigo sms - conteudo
+Codigo sms - origem
+Codigo sms invalido
+Codigo sms invalido - origem
+Codigo sms valido
+Codigo sms valido - origem
+Com portabilidade
+Com portabilidade - origem
+Com portabilidade input
+Com portabilidade input - origem
+Configurar apn
+Configurar apn - origem
+Configurar linha
+Configurar linha - origem
+Configurar sms
+Configurar sms - origem
+Confirma Email - opcoes
+Confirma email
+Confirma email - conteudo
+Confirma email - origem
+Confirmacao email 2a
+Confirmacao email 2a - origem
+Consulta dados realizada
+Consulta dados realizada - origem
+Consulta plano / consumo
+Consulta plano / consumo - origem
+Contestar fatura
+Contestar fatura - origem
+Contesta��o n�o dispon�vel
+Contesta��o n�o dispon�vel - origem
+C�digo / email
+C�digo / email - origem
+C�digo barras
+C�digo barras - origem
+Data de vencimento
+Data de vencimento - origem
+Desativar velocidade reduzida
+Desativar velocidade reduzida - conteudo
+Desativar velocidade reduzida - origem
+Desbloquear
+Desbloquear - conteudo
+Desbloquear - origem
+Desbloqueio - opcoes
+Desbloqueio chip
+Desbloqueio chip - conteudo
+Desbloqueio chip - origem
+Despedida
+Despedida - conteudo
+Despedida - origem
+Despedida- origem
+Elegivel religue
+Elegivel religue - origem
+Elogio
+Elogio - conteudo
+Elogio - origem
+Email cadastrado
+Email cadastrado - Opcoes
+Email cadastrado - conteudo
+Email cadastrado - origem
+Email certo
+Email certo - origem
+Email fatura enviado
+Email fatura enviado - origem
+Email fatura nao enviado
+Email fatura nao enviado - conteudo
+Email fatura nao enviado - digitada
+Email fatura nao enviado - origem
+Email invalido
+Email invalido - origem
+Email nao cadastrado
+Email nao cadastrado - origem
+Encerrou
+Encerrou - conteudo
+Encerrou - origem
+Encontroucadastro
+Encontroucadastro - origem
+Enviou email
+Enviou email - origem
+Erro Gen�rico
+Erro Gen�rico - UserId
+Erro Gen�rico - conteudo
+Erro audio
+Erro audio - origem
+Erro cadastramento fd
+Erro cadastramento fd - origem
+Erro condigo de barras
+Erro condigo de barras - origem
+Erro confirmacao cliente
+Erro confirmacao cliente - conteudo
+Erro confirmacao cliente - origem
+Erro consulta do plano
+Erro consulta do plano - origem
+Erro de input de e-mail
+Erro de input de e-mail - origem
+Erro de transbordo
+Erro de transbordo - origem
+Erro desativacao freemode
+Erro desativacao freemode - origem
+Erro envio fatura
+Erro envio fatura - origem
+Erro falha generico
+Erro falha generico - origem
+Erro generico
+Erro generico - conteudo
+Erro generico - origem
+Erro gen�rico
+Erro gen�rico - origem
+Erro imagem
+Erro imagem - origem
+Erro numero invalido
+Erro numero invalido - origem
+Erro persistente
+Erro persistente - origem
+Erro persistente transbordo no horario
+Erro persistente transbordo no horario - conteudo
+Erro persistente transbordo no horario - opcoes
+Erro persistente transbordo no horario - origem
+Erro reativacao
+Erro reativacao - origem
+Erro v�deo
+Erro v�deo - origem
+Espera atendimento
+Espera atendimento - conteudo
+Espera atendimento - origem
+Espera do transbordo
+Espera do transbordo - conteudo
+Espera do transbordo - origem
+Exceptions
+Exceptions - origem
+Falha no servico
+Falha no servico - origem
+Falha servico
+Falha servico - conteudo
+Falha servi�o
+Falha servi�o - origem
+Fatura
+Fatura - origem
+Fatura digital
+Fatura digital - conteudo
+Fatura digital - opcoes
+Fatura digital - origem
+Fatura digital ativa
+Fatura digital ativa - conteudo
+Fatura digital ativa - origem
+Fatura eletronica nao cadastrada
+Fatura eletronica nao cadastrada - conteudo
+Fatura eletronica nao cadastrada - origem
+Feedback
+Feedback - conteudo
+Feedback - opcoes
+Feedback - origem
+Feedback anotado
+Feedback anotado - conteudo
+Feedback anotado - origem
+Feedback negativo
+Feedback negativo - conteudo
+Feedback negativo - origem
+Feedback positivo
+Feedback positivo - origem
+Fila de Espera - conteudo
+Fila de espera
+Fila de espera - origem
+Finalizacao
+Finalizacao - conteudo
+Finalizacao - nao resolveu
+Finalizacao - nao resolveu - conteudo
+Finalizacao - nao resolveu - origem
+Finalizacao - opcao
+Finalizacao - origem
+Finalizacao - protocolo
+Finalizacao - protocolo - origem
+Finaliza��o
+Finaliza��o - origem
+Fora de horario de atendimento
+Fora de horario de atendimento - conteudo
+Fora de horario de atendimento - origem
+Fora do Horario de atendimento - Usuarios
+Fora do horario de atendimento
+Fora do hor�rio de atendimento
+Fora do hor�rio de atendimento - origem
+Funcionalidade
+Gerou c�digo
+Gerou c�digo - origem
+Humano
+Humano - conteudo
+Humano - origem
+Informar pagamento
+Informar pagamento - conteudo
+Informar pagamento - origem
+Informar pagto
+Informar pagto - origem
+Input handler - 1
+Input handler - 1 - origem
+Input handler - 2
+Input handler - 2 - origem
+Intencao falar com atendente
+Intencao falar com atendente - origem
+Intencao nao reconhecida
+Intencao nao reconhecida outros assuntos
+Intencao nao reconhecida outros assuntos - origem
+Intencao reconhecida
+Interacao numero prospect
+Interacao numero prospect - UserId
+Interacao numero prospect - conteudo
+Interacao numero prospect - origem
+Ja conhece fatura eletronica
+Ja conhece fatura eletronica - origem
+Linha freemode
+Linha freemode - conteudo
+Linha freemode - opcoes
+Linha freemode - origem
+Linha happy
+Linha happy - conteudo
+Linha happy - origem
+Linha happy - userId
+Linha pj
+Linha pj - UserId
+Linha pj - conteudo
+Linha pj - origem
+Linha pre pago
+Linha pre pago - UserId
+Linha pre pago - origem
+Linha suspensa
+Linha suspensa - conteudo
+Linha suspensa - origem
+Linha throtlling
+Linha throtlling - conteudo
+Linha throtlling - origem
+Mais de 3 dias
+Mais de 3 dias - origem
+Mais de 3 faturas
+Mais de 3 faturas - conteudo
+Mais de 3 faturas - origem
+Menos de 3
+Menos de 3 - origem
+Menos de 3 faturas
+Menos de 3 faturas - origem
+Mensagem nao entendida atendimento
+Mensagem nao entendida atendimento - conteudo
+Mensagem nao entendida atendimento - opcoes
+Mensagem nao entendida atendimento - origem
+Menu generico linha ativa
+Menu generico linha ativa - conteudo
+Menu generico linha ativa - opcoes
+Menu generico linha ativa - origem
+Menu generico linha suspensa
+Menu generico linha suspensa - conteudo
+Menu generico linha suspensa - opcoes
+Menu generico linha suspensa - origem
+Menu handler
+Menu handler - origem
+Menu linha ativa
+Menu linha ativa - conteudo
+Menu linha ativa - opcoes
+Menu linha ativa - origem
+Menu linha suspensa
+Menu linha suspensa - conteudo
+Menu linha suspensa - opcoes
+Menu linha suspensa - origem
+Menu outros assuntos
+Menu outros assuntos - origem
+Menu principal
+Menu principal - origem
+Menu religue
+Menu religue - origem
+Menu retorno
+Menu retorno - origem
+Menu retorno linha ativa
+Menu retorno linha ativa - conteudo
+Menu retorno linha ativa - opcoes
+Menu retorno linha ativa - origem
+Menu retorno linha suspensa
+Menu retorno linha suspensa - conteudo
+Menu retorno linha suspensa - opcoes
+Menu retorno linha suspensa - origem
+Menu suspenso
+Menu suspenso - origem
+Meu nextel
+Meu nextel - origem
+Mudar email
+Mudar email - conteudo
+Mudar email - origem
+Mudar endereco
+Mudar endereco - conteudo
+Mudar endereco - origem
+Mudar plano
+Mudar plano - origem
+Mudar plano elegivel reativacao
+Mudar plano elegivel reativacao - opcoes
+Mudar plano elegivel reativacao - origem
+Mudar plano escolha - conteudo
+Mudar plano escolha - opcoes
+Mudar plano minutos ilimitados
+Mudar plano minutos ilimitados - origem
+Mudar plano reativacao
+Mudar plano reativacao - origem
+Nao conhece fatura eletronica
+Nao conhece fatura eletronica - origem
+Nao desativar
+Nao desativar - conteudo
+Nao desativar - origem
+Nao espera atendimento
+Nao espera atendimento - origem
+Nao nextel
+Nao nextel - UserId
+Nao nextel - conteudo
+Nao nextel - origem
+Negociar valores
+Negociar valores - com debito
+Negociar valores - com debito - origem
+Negociar valores - origem
+Negociar valores - sem debito
+Negociar valores - sem debito - origem
+Negocia��o
+Negocia��o - origem
+Nextel
+Nextel - origem
+Nina
+Nina - origem
+Numero fora do formato
+Numero fora do formato - conteudo
+Numero fora do formato - origem
+Numero in fraude
+Numero in fraude - origem
+Numero nao identificado
+Numero nao identificado - conteudo
+Numero nao identificado - origem
+Numero nao nextel
+Numero nao nextel  - conteudo
+Numero nao nextel - origem
+N�o cliente handler
+N�o cliente handler - origem
+N�o eleg�vel
+N�o eleg�vel - origem
+N�o tem email
+N�o tem email - origem
+N�o tem fatura
+N�o tem fatura - origem
+N�o � alto valor
+N�o � alto valor - origem
+N�o � nextel
+N�o � nextel - origem
+Onboarding
+Origem NLP
+Outros assuntos - conteudo
+Pagamento mais 3 dias
+Pagamento mais 3 dias - origem
+Pagamento menos 3 dias
+Pagamento menos 3 dias - origem
+Pcl linha suspensa
+Pcl linha suspensa - origem
+Pcl solicitou cancelamento
+Pdf - conteudo
+Pdf - origem
+Pede email
+Pede email - origem
+Perda e roubo
+Perda e roubo - conteudo
+Perda e roubo - origem
+Perfil de usuario
+Persistencia com input
+Persistencia com input - conteudo
+Persistencia com input - origem
+Persistencia sem input
+Persistencia sem input - conteudo
+Persistencia sem input - origem
+Pj - origem
+Portabilidade
+Portabilidade - origem
+Principal
+Principal - origem
+Problema com chip
+Problema com chip - conteudo
+Problema com chip - origem
+Problema com chip input
+Problema com chip input - origem
+Problema com linha
+Problema com linha - conteudo
+Problema com linha - origem
+Prospect
+Prospect - origem
+Protocolo
+Protocolo - origem
+Reajuste
+Reajuste - origem
+Reativacao
+Reativacao - origem
+Reativacao - pagamento realizado
+Reativacao - pagamento realizado - origem
+Reativacao - pedido solicitado
+Reativacao - pedido solicitado - conteudo
+Reativacao - pedido solicitado - origem
+Reativar
+Reativar - origem
+Reativa��o
+Reativa��o - origem
+Reclamacao
+Reclamacao - origem
+Reconfirmacao de email
+Reconfirmacao de email - conteudo
+Reconfirmacao de email - digitada
+Reconfirmacao de email - origem
+Redireciona para lojas
+Redireciona para lojas - origem
+Refresh
+Refresh - conteudo
+Refresh - opcoes
+Refresh - origem
+Refresh mesmo assunto
+Refresh mesmo assunto - origem
+Refresh outro assunto
+Refresh outro assunto - origem
+Religou
+Religou - origem
+Requestcustomerinfo
+Requestcustomerinfo - origem
+Requestduedate
+Requestduedate - origem
+Requestebill - get
+Requestebill - get - origem
+Requestebill - post
+Requestebill - post - origem
+Requestelegibility
+Requestelegibility - origem
+Requestemail
+Requestemail - origem
+Requestfranchise
+Requestfranchise - origem
+Requestfreemode get
+Requestfreemode get - origem
+Requestfreemode put
+Requestfreemode put - origem
+Requestplan
+Requestplan - origem
+Requestprotocol
+Requestprotocol - origem
+Requestra
+Requestra - origem
+Requestreactivation
+Requestreactivation - origem
+Requestsendslip
+Requestsendslip - origem
+Requestsliplist
+Requestsliplist - origem
+Ret religue
+Ret religue - origem
+Retorno
+Retorno - origem
+Roaming
+Roaming - origem
+Roteador customer info
+Roteador customer info - origem
+Roteador dev
+Roteador dev - origem
+Roteador encontrou cadastro
+Roteador encontrou cadastro - origem
+Roteador erro
+Roteador erro + textao
+Roteador erro + textao - origem
+Roteador erro - origem
+Roteador intencao
+Roteador intencao + 1 x entidade
+Roteador intencao + 1 x entidade - origem
+Roteador intencao + 2 x entidade
+Roteador intencao + 2 x entidade - origem
+Roteador intencao - origem
+Roteador negativo/positivo
+Roteador negativo/positivo - origem
+Roteador nlp
+Roteador nlp - origem
+Roteador protocol
+Roteador protocol - origem
+Roteador texticulo
+Roteador texticulo - origem
+Segunda via acordo
+Segunda via acordo - origem
+Sem fatura aberta
+Sem fatura aberta - origem
+Sem portabilidade
+Sem portabilidade - origem
+Sem portabilidade input
+Sem portabilidade input - origem
+Sem problemas
+Sem problemas - origem
+Small talks
+Smalltalks integration
+Smalltalks integration - origem
+Solicitar chip
+Solicitar chip - origem
+Solicitar linha
+Solicitar linha - origem
+Start
+Suspenso
+Suspenso - origem
+Taxa
+Taxa - conteudo
+Taxa - origem
+Taxa boleto
+Taxa boleto - origem
+Taxa o que e
+Taxa o que e - origem
+Taxa pagamento
+Taxa pagamento - origem
+Taxa qual valor
+Taxa qual valor - origem
+Tem fatura
+Tem fatura - origem
+Testar internet aguardando
+Testar internet aguardando - conteudo
+Testar internet aguardando - opcoes
+Testar internet aguardando - origem
+Testar internet concluido
+Testar internet concluido - origem
+Testar internet delay
+Testar internet delay - origem
+Testar internet falha
+Testar internet falha - origem
+Teste ajuda com internet
+Teste ajuda com internet - origem
+Textao
+Textao - conteudo
+Textao - origem
+Textao - recorrente
+Textao - recorrente - conteudo
+Textao - recorrente - origem
+Textao input
+Textao input - caracteres
+Textao input 2a interacao
+Textao input 2a interacao - caracteres
+Texticulo
+Texticulo - conteudo
+Texticulo - origem
+Texticulo 2a interacao
+Texticulo 2a interacao - conteudo
+Texticulo 2a interacao - origem
+Texticulo input
+Texticulo input - caracteres
+Tipo de linha
+Transbordo desligado
+Transbordo desligado - origem
+Transbordo problema tecnico
+Transbordo problema tecnico - origem
+Transbordo problema tecnico desabilitado
+Transbordo problema tecnico desabilitado - origem
+Valida protocolo
+Valida protocolo - origem
+Validacao ath no periodo de recencia
+Validacao ath no periodo de recencia - origem
+Validacao cadastro fatura digital
+Validacao email existente
+Validacao email existente - conteudo
+Validacao email existente - origem
+Validacao fatura aberta ou boleto negociado
+Validacao fatura aberta ou boleto negociado - origem
+Validacao identificacao numero
+Validacao linha suspensa
+Validacao numero nextel
+Validacao numero no formato
+Validacao numero no formato - origem
+Validacao numero prospect
+Validacao pcl linha suspensa
+Validacao pcl linha suspensa - origem
+Validacao reativacao confianca
+Validaemail
+Validaemail - origem
+Velocidade reduzida desativada
+Velocidade reduzida desativada - conteudo
+Velocidade reduzida desativada - origem
+Vocaliza franquia e consumo
+Vocaliza franquia e consumo - origem
+flow
+n�o nextel - op�ao

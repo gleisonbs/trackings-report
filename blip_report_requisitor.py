@@ -1,11 +1,8 @@
-# código original: https://github.com/chr0m1ng/blip-report-requisitor
-
 from requests import Session
 from functools import reduce
 from uuid import uuid4
 from json import dumps
 
-from pprint import pprint
 
 def percentage(part, whole):
     return round(100 * float(part) / float(whole), 2)
@@ -17,10 +14,24 @@ class Requisitor(object):
         if authorization[0:3].lower() != 'key':
             authorization = 'Key %s' % authorization
         self.Session = Session()
-        self.Session.headers.update({'Content-Type': 'application/json'})
         self.Session.headers.update({'Authorization': authorization})
         self.Token = token
         self.Bot = bot
+
+    def getAllCategories(self, take=999999):
+        body = {
+            'id': str(uuid4()),
+            'method': 'get',
+            'to': 'postmaster@analytics.msging.net',
+            'uri': '/event-track?$take=%s' % (take),
+        }
+
+        command = self.Session.post('https://msging.net/commands', json=body)
+        command = command.json()
+
+        report = [tracking['category'] for tracking in command['resource']['items']]
+
+        return report
 
     def getCustomReport(self, uri, start_date, end_date, take=999999):
         body = {
@@ -32,8 +43,13 @@ class Requisitor(object):
              end_date.strftime('%Y-%m-%d'), take)
         }
 
-        command = self.Session.post('https://msging.net/commands', json=body)
+        command = self.Session.post(
+            'https://msging.net/commands',
+            json=body
+        )
         command = command.json()
+
+        print(command)
 
         itemType = command['resource']['itemType']
         report = []
@@ -41,25 +57,6 @@ class Requisitor(object):
             report = Requisitor.getEventTrackValues(command['resource'])
         elif itemType == 'application/vnd.iris.analytics.metric-identity+json':
             report = Requisitor.getMetricsValue(command['resource'])
-
-        return report
-
-    def getAllTrackingCategories(self):
-        try:
-            body = {
-                'id': str(uuid4()),
-                'method': 'get',
-                'to': 'postmaster@analytics.msging.net',
-                'uri': '/event-track',
-            }
-
-            command = self.Session.post('https://msging.net/commands', json=body)
-            command = command.json()
-            
-            report = [tracking for tracking in command['resource']['items']]
-        except Exception as ex:
-            print(f'Something went wrong:\n{ex}')
-            return []
 
         return report
 

@@ -11,27 +11,40 @@ from pprint import pprint
 from random import randint
 
 from trackings import Trackings
+from blip_report_maker import ReportMaker
 
-months = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro']
-def getMonthFromDate(date):
-    date = str(date)
-    numeric_month = int(date.split('-')[1])
-    return months[numeric_month-1]
+reportMaker = ReportMaker()
+# t = Trackings()
+# with open('correct_trackings.txt', 'w') as correct_trackings:
+#     all_correct_trackings = reportMaker.get_all_correct_trackings()
 
-def get_date_period():
-    try:
-        from_date = datetime.strptime(sys.argv[1], '%Y-%m-%d')
-        to_date = datetime.strptime(sys.argv[2], '%Y-%m-%d')
-        return (from_date, to_date)
-    except:
-        print("É necessário passar uma data inicial e uma data final, no formato mes/dia/ano")
-        return (None, None)
+#     for i in range(5):
+#         print(t.get_value(all_correct_trackings[i], datetime(2019, 5, 5), datetime(2019, 6, 6)))
+#         print('\n')
 
-spreadsheet_client = GoogleSheets().login()
+#     correct_trackings.write(f"Correct trackings: {len(all_correct_trackings)}\n")
+#     correct_trackings.write('\n'.join(all_correct_trackings))
+
+# with open('wrong_trackings.txt', 'w') as wrong_trackings:
+#     all_wrong_trackings = reportMaker.get_all_wrong_trackings()
+
+#     wrong_trackings.write(f"Wrong trackings: {len(all_wrong_trackings)}\n")
+#     wrong_trackings.write('\n'.join(all_wrong_trackings))
+
+sys.exit()
+
+
+
+trackings = Trackings()
+trackings_names = trackings.get_all()
+
+
+
+google_sheets_client = GoogleSheets()
+spreadsheet_client = google_sheets_client.get()
 spreadsheet = spreadsheet_client.open("PlanilhaTesteIntegracao")
 
-worksheet = spreadsheet.add_worksheet("Main" + str(randint(0, 1000)), 1, 13)
-spreadsheet.del_worksheet(spreadsheet.get_worksheet(0))
+# google_sheets_client.replace_worksheet(0, ("Main", 1, 13))
 
 oneMonth = relativedelta(months=+1)
 
@@ -40,14 +53,19 @@ trackings = Trackings()
 trackings_names = trackings.get_all()
 for tracking in trackings_names:
     begin_date, end_date = get_date_period()
-    monthly_value = []
+    monthly_value = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
     while begin_date <= end_date:
-        month = getMonthFromDate(begin_date)
+        month_number, month = getMonthFromDate(begin_date)
         value_for_month = trackings.get_value(tracking, begin_date, begin_date + oneMonth)
         if (type(value_for_month) is not int):
-            print(f'tracking {tracking} is wrong')
+            pprint(f'tracking {tracking} -> {value_for_month} is wrong')
         else:
-            monthly_value.append(value_for_month)
+            monthly_value[month_number] = value_for_month
         begin_date += oneMonth
     worksheet.append_row([tracking] + monthly_value)
+
+wks.values_update(
+'HP WPP BH!A2',
+params={'valueInputOption': 'RAW'}, 
+body={'values': rows})
