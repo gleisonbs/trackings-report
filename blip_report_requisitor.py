@@ -34,31 +34,33 @@ class Requisitor(object):
         return report
 
     def getCustomReport(self, uri, start_date, end_date, take=999999):
-        body = {
-            'id': str(uuid4()),
-            'method': 'get',
-            'to': 'postmaster@analytics.msging.net',
-            'uri': '%s?startDate=%sT03%%3A00%%3A00.000Z&endDate=%sT03%%3A00%%3A00.000Z&$take=%s' %
-            (uri, start_date.strftime('%Y-%m-%d'),
-             end_date.strftime('%Y-%m-%d'), take)
-        }
+        try:
+            body = {
+                'id': str(uuid4()),
+                'method': 'get',
+                'to': 'postmaster@analytics.msging.net',
+                'uri': '%s?startDate=%sT03%%3A00%%3A00.000Z&endDate=%sT03%%3A00%%3A00.000Z&$take=%s' %
+                (uri, start_date.strftime('%Y-%m-%d'),
+                end_date.strftime('%Y-%m-%d'), take)
+            }
 
-        command = self.Session.post(
-            'https://msging.net/commands',
-            json=body
-        )
-        command = command.json()
+            command = self.Session.post(
+                'https://msging.net/commands',
+                json=body
+            )
+            command = command.json()
 
-        print(command)
+            itemType = command['resource']['itemType']
+            report = []
+            if itemType == 'application/vnd.iris.eventTrack+json':
+                report = Requisitor.getEventTrackValues(command['resource'])
+            elif itemType == 'application/vnd.iris.analytics.metric-identity+json':
+                report = Requisitor.getMetricsValue(command['resource'])
 
-        itemType = command['resource']['itemType']
-        report = []
-        if itemType == 'application/vnd.iris.eventTrack+json':
-            report = Requisitor.getEventTrackValues(command['resource'])
-        elif itemType == 'application/vnd.iris.analytics.metric-identity+json':
-            report = Requisitor.getMetricsValue(command['resource'])
-
-        return report
+            return report
+        except Exception as identifier:
+            print(f'{identifier}\n\n{command}')
+            return 0
 
     def getTrafficMessagesReport(self, start_date, end_date):
         recv_messages = self.Session.get(
