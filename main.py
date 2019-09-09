@@ -1,7 +1,12 @@
 
 from google_sheets import GoogleSheets
-from reports.monthly_report import MonthlyReport
-from reports.daily_report import DailyReport
+import sys
+import os
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+from reports import MonthlyReport
+from reports import DailyReport
+# from reports import DailyReport
 
 from time import time
 
@@ -29,9 +34,9 @@ start_time = time()
 google_sheets = GoogleSheets()
 spreadsheet = google_sheets.open("PlanilhaTesteIntegracao")
 
-monthlyReport = MonthlyReport()
-monthly_tracking_volume = monthlyReport.generate()
-spreadsheet.values_update('Monthly', params={'valueInputOption': 'RAW'}, body={'values': monthly_tracking_volume})
+# monthlyReport = MonthlyReport()
+# monthly_tracking_volume = monthlyReport.generate()
+# spreadsheet.values_update('Monthly', params={'valueInputOption': 'RAW'}, body={'values': monthly_tracking_volume})
 
 dailyReport = DailyReport()
 daily_tracking_volume = dailyReport.generate()

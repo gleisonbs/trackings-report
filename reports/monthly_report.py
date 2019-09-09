@@ -22,7 +22,7 @@ class MonthlyReport:
         for tracking in trackings_names:
             sleep(2) # delay so we wont flood the api
             begin_date, end_date = get_date_range()
-            monthly_value = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+            monthly_values = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
             while begin_date <= end_date:
                 month_number, _ = get_month_from_date(begin_date)
@@ -31,10 +31,10 @@ class MonthlyReport:
                 if (type(monthly_total) is not int):
                     log_error(f'tracking {tracking} -> {monthly_total} is wrong')
                 else:
-                    monthly_value[month_number] = monthly_total
+                    monthly_values[month_number] = monthly_total
 
                 begin_date += oneMonth
-            self.rows.append([tracking] + monthly_value)
+            self.rows.append([tracking] + monthly_values)
             # if (counter > 50):
             #     break
             # counter = counter + 1

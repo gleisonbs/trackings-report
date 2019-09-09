@@ -48,6 +48,7 @@ class Requisitor(object):
                 'https://msging.net/commands',
                 json=body
             )
+
             command = command.json()
 
             itemType = command['resource']['itemType']

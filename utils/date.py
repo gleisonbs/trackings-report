@@ -7,10 +7,15 @@ months = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', '
 def get_month_list():
     return months
 
+def get_days_list():
+    return [d for d in range(1, 32)]
+
 def get_month_from_date(date):
-    date = str(date)
-    numeric_month = int(date.split('-')[1])
-    return (numeric_month - 1, months[numeric_month-1])
+    month = date.month
+    return (month - 1, months[month-1])
+
+def get_day_from_date(date):
+    return date.day
 
 def get_date_range():
     try:
