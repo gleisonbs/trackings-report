@@ -85,4 +85,11 @@ trackings_to_ignore = [
 'Validacao reativacao confianca',
 'Validaemail',
 'Vocaliza franquia e consumo',
-'flow' ]
+'flow',
+'Assertividade NLP',
+'Codigo de barras gerado email cadastrado',
+'Fatura eletronica nao cadastrada',
+'Informar pagamento',
+'Intencao nao reconhecida',
+'Textao input - caracteres',
+'Textao input 2a interacao - caracteres' ]

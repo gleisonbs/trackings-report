@@ -19,7 +19,7 @@ class DailyReport:
 
         begin_date, end_date = get_date_range()
         for month in get_month_list():
-            self.rows.append([month])
+            self.rows.append([month] + ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''])
             
             for tracking in trackings_names:
                 sleep(1)
@@ -53,6 +53,6 @@ class DailyReport:
 
     def next_day_is_next_month(self, date):
         oneDay = relativedelta(days=+1)
-        return date.month != (date - oneDay).month and date.year == (date - oneDay).year
+        return date.month != (date + oneDay).month
 
 # print('\t\t' + begin_date.strftime("%m/%d/%Y"))

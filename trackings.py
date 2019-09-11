@@ -3,6 +3,8 @@ from blip_report_requisitor import Requisitor
 import json
 import re
 
+from ignore_trackings import trackings_to_ignore
+
 class Trackings:
     def __init__(self):
         self.all_trackings = []
@@ -18,7 +20,7 @@ class Trackings:
 
     def __get_all_trackings(self, refresh = False):
         if refresh or not self.all_trackings:
-            self.all_trackings = self.requisitor.getAllCategories()
+            self.all_trackings = [t for t in self.requisitor.getAllCategories() if t not in trackings_to_ignore]
         return self.all_trackings
 
     def is_option_tracking(self, tracking):

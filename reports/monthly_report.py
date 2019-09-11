@@ -5,6 +5,7 @@ from dateutil.relativedelta import relativedelta
 
 from pprint import pprint
 from time import sleep
+from datetime import datetime
 
 class MonthlyReport:
     def __init__(self):
@@ -20,7 +21,8 @@ class MonthlyReport:
         oneMonth = relativedelta(months=+1)
         # counter = 0
         for tracking in trackings_names:
-            sleep(2) # delay so we wont flood the api
+            print(f'Getting {tracking}')
+            sleep(1) # delay so we wont flood the api
             begin_date, end_date = get_date_range()
             monthly_values = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
@@ -39,6 +41,8 @@ class MonthlyReport:
             #     break
             # counter = counter + 1
 
+        updated_at = f'Atualizado em: {datetime.now().strftime("%d/%m/%Y %H:%M:%S")}'
         months = [''] + get_month_list()
         self.rows.insert(0, months)
+        self.rows.insert(0, [updated_at])
         return self.rows
