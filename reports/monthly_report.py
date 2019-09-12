@@ -6,11 +6,25 @@ from dateutil.relativedelta import relativedelta
 from pprint import pprint
 from time import sleep
 from datetime import datetime
+from collections import defaultdict
 
 class MonthlyReport:
     def __init__(self):
         self.rows = []
         self.trackings = Trackings()
+        self.bad_trackings = []
+
+        
+    def group_by_month(self, trackings):
+        report = defaultdict(int)
+        for t in trackings:
+
+            if t['action'].lower() != 'exibicao':
+                return f'invalid:{t["action"]}'
+
+            storageDate = datetime.strptime(t['storageDate'][:10], '%Y-%m-%d')
+            report[(storageDate.year, storageDate.month)] += t['count']
+        return dict(report)
 
     def get_tracking_count(self, tracking, from_date, to_date):
         return self.trackings.get_value(tracking, from_date, to_date)
@@ -18,31 +32,29 @@ class MonthlyReport:
     def generate(self):
         trackings_names = self.trackings.get_all_view_trackings()
 
-        oneMonth = relativedelta(months=+1)
-        # counter = 0
         for tracking in trackings_names:
-            print(f'Getting {tracking}')
-            sleep(1) # delay so we wont flood the api
+            #print(f'\n{tracking}')
             begin_date, end_date = get_date_range()
             monthly_values = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
-            while begin_date <= end_date:
-                month_number, _ = get_month_from_date(begin_date)
-                monthly_total = self.get_tracking_count(tracking, begin_date, begin_date + oneMonth)
+            tracking_totals = self.get_tracking_count(tracking, begin_date, end_date)
+            grouped_by_months = self.group_by_month(tracking_totals)
 
-                if (type(monthly_total) is not int):
-                    log_error(f'tracking {tracking} -> {monthly_total} is wrong')
-                else:
-                    monthly_values[month_number] = monthly_total
+            if type(grouped_by_months) is str and grouped_by_months.startswith('invalid'):
+                self.bad_trackings.append(f'{tracking} -> action: {grouped_by_months.split(":")[1]}')
+                continue
+            
+            for (year, month) in grouped_by_months:
+                monthly_values[month-1] = grouped_by_months[(year, month)]
 
-                begin_date += oneMonth
             self.rows.append([tracking] + monthly_values)
-            # if (counter > 50):
-            #     break
-            # counter = counter + 1
 
-        updated_at = f'Atualizado em: {datetime.now().strftime("%d/%m/%Y %H:%M:%S")}'
+        print('\n\nTrackings que não são de exibição:\n')
+        print(self.bad_trackings)
+        
         months = [''] + get_month_list()
         self.rows.insert(0, months)
+
+        updated_at = f'Atualizado em: {datetime.now().strftime("%d/%m/%Y %H:%M:%S")}'
         self.rows.insert(0, [updated_at])
         return self.rows
