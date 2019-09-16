@@ -36,7 +36,7 @@ class DailyReport:
         for month_name in get_month_list():
             self.rows.append([month_name] + ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''])
             
-            for tracking in trackings_names[:15]:
+            for tracking in trackings_names:
                 print(f'{month_name}: {tracking}')
                 daily_values = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
                 tracking_totals = self.get_tracking_count(tracking, begin_date, end_date)
