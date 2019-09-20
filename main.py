@@ -17,16 +17,14 @@ from collections import defaultdict
 
 start_time = time()
 
-google_sheets = GoogleSheets()
-spreadsheet = google_sheets.open("PlanilhaTesteIntegracao")
-
 reports_available = [
-    ('Daily', DailyReport),
-    ('Monthly', MonthlyReport),
+    ('Daily', DailyReport, 'google_spreadsheet'),
+    ('Monthly', MonthlyReport, 'google_spreadsheet'),
+    ('MAU', MAUReport, ''),
 ]
 
 def display_report_list():
-    reports = '\n'.join([f'\t{index+1} - {name}' for index, (name, implementation) in enumerate(reports_available)])
+    reports = '\n'.join([f'\t{index+1} - {name}' for index, (name, _, _) in enumerate(reports_available)])
 
     print('Choose the report:')
     print(reports)
@@ -41,11 +39,15 @@ def get_report():
     return reports_available[report_chosen]
 
 display_report_list()
-report_name, report_generator = get_report()
+report_name, report_generator, output_to = get_report()
 
 report = report_generator()
 volume = report.generate()
-spreadsheet.values_update(report_name, params={'valueInputOption': 'RAW'}, body={'values': volume})
+
+if output_to == 'google_spreadsheet':
+    google_sheets = GoogleSheets()
+    spreadsheet = google_sheets.open("PlanilhaTesteIntegracao")
+    spreadsheet.values_update(report_name, params={'valueInputOption': 'RAW'}, body={'values': volume})
 
 elapsed_time = time() - start_time
 print(f'Duração: {elapsed_time/60} minutos')

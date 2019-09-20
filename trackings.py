@@ -63,3 +63,6 @@ class Trackings:
                                                                              not self.is_content_tracking(tracking) and
                                                                              not self.is_userId_tracking(tracking) and
                                                                              not self.is_option_tracking(tracking)]
+
+    def getMAU(self, start_date, end_date):
+        return self.requisitor.getMau(start_date, end_date)
