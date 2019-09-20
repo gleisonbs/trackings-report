@@ -19,12 +19,16 @@ def get_day_from_date(date):
 
 def get_date_range():
     try:
-        from_date = datetime.strptime(sys.argv[1], '%Y-%m-%d')
-        to_date = datetime.strptime(sys.argv[2], '%Y-%m-%d')
+        if len(sys.argv) >= 2:
+            from_date = datetime.strptime(sys.argv[1], '%Y-%m-%d')
+
+        if len(sys.argv) >= 3:
+            to_date = datetime.strptime(sys.argv[2], '%Y-%m-%d')
 
         if to_date > datetime.now():
             to_date = datetime.now()
 
+        print(from_date, to_date)
         return (from_date, to_date)
     except:
         year = datetime.now().year

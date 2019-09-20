@@ -17,7 +17,6 @@ class DailyReport:
     def group_by_days(self, trackings):
         report = defaultdict(int)
         for t in trackings:
-
             if t['action'].lower() != 'exibicao':
                 return f'invalid:{t["action"]}'
 
@@ -25,37 +24,46 @@ class DailyReport:
             report[(storageDate.year, storageDate.month, storageDate.day)] += t['count']
         return dict(report)
 
-    def get_tracking_count(self, tracking, from_date, to_date):
-        return self.trackings.get_value(tracking, from_date, to_date)
+    def get_daily_count(self, grouped_by_days, current_month):
+        daily_values = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        for (year, _, day) in grouped_by_days:
+            if (year, current_month, day) in grouped_by_days:                    
+                daily_values[day-1] = grouped_by_days[(year, current_month, day)]
+            else:
+                daily_values[day-1] = 0
+        return daily_values
+
+    def is_valid_tracking(self, tracking, grouped_by_days):
+        if type(grouped_by_days) is str and grouped_by_days.startswith('invalid'):
+            self.bad_trackings.append(f'{tracking} -> action: {grouped_by_days.split(":")[1]}')
+            return False
+        return True
 
     def generate(self):
         trackings_names = self.trackings.get_all_view_trackings()
 
         begin_date, end_date = get_date_range()
-        current_month = 1
-        for month_name in get_month_list():
+        first_month, last_month = begin_date.month, end_date.month
+
+        months = get_month_list()[first_month-1:last_month]
+        print(months)
+        for current_month, month_name in enumerate(months, first_month):
             self.rows.append([month_name] + ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''])
             
             for tracking in trackings_names:
                 print(f'{month_name}: {tracking}')
-                daily_values = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-                tracking_totals = self.get_tracking_count(tracking, begin_date, end_date)
-                group_by_days = self.group_by_days(tracking_totals)
+                
 
-                if type(group_by_days) is str and group_by_days.startswith('invalid'):
-                    self.bad_trackings.append(f'{tracking} -> action: {group_by_days.split(":")[1]}')
+                tracking_totals = self.trackings.get_value(tracking, begin_date, end_date)
+                grouped_by_days = self.group_by_days(tracking_totals)
+
+                if not self.is_valid_tracking(tracking, grouped_by_days):
                     continue
-            
-                for (year, _, day) in group_by_days:
-                    if (year, current_month, day) in group_by_days:                    
-                        daily_values[day-1] = group_by_days[(year, current_month, day)]
-                    else:
-                        daily_values[day-1] = 0
+
+                daily_values = self.get_daily_count(grouped_by_days, current_month)
 
                 self.rows.append([tracking] + daily_values)
             self.rows.append([])
-
-            current_month += 1
 
         print('\n\nTrackings que não são de exibição:\n')
         print(self.bad_trackings)
