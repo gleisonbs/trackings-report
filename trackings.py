@@ -58,7 +58,7 @@ class Trackings:
     def get_all_correct_trackings(self):
         return [tracking for tracking in self.__get_all_trackings() if not self.__is_trackings_wrong(tracking)]
 
-    def get_all_view_trackings(self):
+    def get_all_exhibition_trackings(self):
         return [tracking for tracking in self.get_all_correct_trackings() if not self.is_origin_tracking(tracking) and
                                                                              not self.is_content_tracking(tracking) and
                                                                              not self.is_userId_tracking(tracking) and

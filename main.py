@@ -4,8 +4,7 @@ import sys
 import os
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from reports import MonthlyReport
-from reports import DailyReport
+from reports import *
 
 from trackings import Trackings
 
@@ -21,13 +20,32 @@ start_time = time()
 google_sheets = GoogleSheets()
 spreadsheet = google_sheets.open("PlanilhaTesteIntegracao")
 
-# monthlyReport = MonthlyReport()
-# monthly_tracking_volume = monthlyReport.generate()
-# spreadsheet.values_update('Monthly', params={'valueInputOption': 'RAW'}, body={'values': monthly_tracking_volume})
+reports_available = [
+    ('Daily', DailyReport),
+    ('Monthly', MonthlyReport),
+]
 
-dailyReport = DailyReport()
-daily_tracking_volume = dailyReport.generate()
-spreadsheet.values_update('Daily', params={'valueInputOption': 'RAW'}, body={'values': daily_tracking_volume})
+def display_report_list():
+    reports = '\n'.join([f'\t{index+1} - {name}' for index, (name, implementation) in enumerate(reports_available)])
+
+    print('Choose the report:')
+    print(reports)
+
+def get_report():
+    report_chosen = -1
+    while report_chosen not in range(len(reports_available)):
+        report_chosen = int(input(': '))
+        report_chosen -= 1
+    
+    print(f'\nYou chose the "{reports_available[report_chosen][0]}" report\n')
+    return reports_available[report_chosen]
+
+display_report_list()
+report_name, report_generator = get_report()
+
+report = report_generator()
+volume = report.generate()
+spreadsheet.values_update(report_name, params={'valueInputOption': 'RAW'}, body={'values': volume})
 
 elapsed_time = time() - start_time
 print(f'Duração: {elapsed_time/60} minutos')

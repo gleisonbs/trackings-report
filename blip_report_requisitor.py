@@ -16,13 +16,14 @@ class Requisitor(object):
             authorization = 'Key %s' % authorization
         self.Session = Session()
         self.Session.headers.update({'Authorization': authorization})
+        self.retry_wait = 10 # in seconds
 
     def getAllCategories(self, take=999999):
         body = {
             'id': str(uuid4()),
             'method': 'get',
             'to': 'postmaster@analytics.msging.net',
-            'uri': '/event-track?$take=%s' % (take),
+            'uri': f'/event-track?$take={take}'
         }
 
         command = self.Session.post('https://msging.net/commands', json=body)
@@ -33,15 +34,16 @@ class Requisitor(object):
         return report
 
     def getCustomReport(self, uri, start_date, end_date, take=999999, retry_attempts=3):
+        start_date = start_date.strftime('%Y-%m-%d')
+        end_date = end_date.strftime('%Y-%m-%d')
+
         while retry_attempts:
             try:
                 body = {
                     'id': str(uuid4()),
                     'method': 'get',
                     'to': 'postmaster@analytics.msging.net',
-                    'uri': '%s?startDate=%sT03%%3A00%%3A00.000Z&endDate=%sT03%%3A00%%3A00.000Z&$take=%s' %
-                    (uri, start_date.strftime('%Y-%m-%d'),
-                    end_date.strftime('%Y-%m-%d'), take)
+                    'uri': f'{uri}?startDate={start_date}T03%3A00%3A00.000Z&endDate={end_date}T03%3A00%3A00.000Z&$take={take}'
                 }
 
                 command = self.Session.post(
@@ -56,8 +58,7 @@ class Requisitor(object):
             except Exception as identifier:
                 print(f'Exception occurred\nWill retry: {retry_attempts}\n{identifier}\n\n{command}')
 
-                sleep_time = [0, 10, 5, 3]
-                time.sleep(sleep_time[retry_attempts])
+                time.sleep(self.retry_wait)
                 
                 retry_attempts -= 1
 

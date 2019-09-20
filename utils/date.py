@@ -2,10 +2,10 @@
 import sys
 from datetime import datetime
 
-months = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro']
+months = [('Janeiro', 1), ('Fevereiro', 2), ('Março', 3), ('Abril', 4), ('Maio', 5), ('Junho', 6), ('Julho', 7), ('Agosto', 8), ('Setembro', 9), ('Outubro', 10), ('Novembro', 11), ('Dezembro', 12)]
 
-def get_month_list():
-    return months
+def get_months(from_month=1, to_month=12):
+    return months[from_month-1:to_month]
 
 def get_days_list():
     return [d for d in range(1, 32)]
@@ -28,7 +28,6 @@ def get_date_range():
         if to_date > datetime.now():
             to_date = datetime.now()
 
-        print(from_date, to_date)
         return (from_date, to_date)
     except:
         year = datetime.now().year
