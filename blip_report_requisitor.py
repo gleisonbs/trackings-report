@@ -10,6 +10,7 @@ from uuid import uuid4
 from json import dumps
 import time
 from datetime import datetime
+from pprint import pprint
 
 class Requisitor(object):
 
@@ -82,5 +83,8 @@ class Requisitor(object):
 
     def getMau(self, start_date, end_date):
         mau_uri = f'/metrics/active-identity/NI'
-        return self.getCustomReport(mau_uri, start_date, end_date)
+        total_MAU = self.getCustomReport(mau_uri, start_date, end_date)
+        if len(total_MAU) == 1:
+            total_MAU = total_MAU[0]['count']
+        return total_MAU
 

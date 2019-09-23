@@ -8,7 +8,7 @@ from time import sleep
 from datetime import datetime
 from collections import defaultdict
 
-class MAUReport:
+class MAUDailyReport:
     def __init__(self):
         self.trackings = Trackings()
         self.rows = []
@@ -21,21 +21,21 @@ class MAUReport:
         return rows
 
     def generate(self):
-        print('Running the "MAU" report...')
+        print('Running the "MAU" report from {begin_date} to {end_date}\n')
 
         begin_date, end_date = get_date_range()
-        months = get_months(begin_date.month, end_date.month)
 
-        oneMonth = relativedelta(months = +1)
         oneDay = relativedelta(days = +1)
-        for month_name, month_number in months:
+        while begin_date <= end_date and begin_date <= datetime.now().date():
             
-            total_MAU = self.trackings.getMAU(begin_date, (begin_date + oneMonth) - oneDay)
-            begin_date += oneMonth
+            total_MAU = self.trackings.getMAU(begin_date, begin_date)
+            
+            self.rows.append([begin_date.strftime("%d/%m/%Y")] + [total_MAU])
+            print(f'{begin_date}: {total_MAU}')
 
-            self.rows.append([month_name] + [total_MAU])
-
-            print(f'{month_name}: {total_MAU}')
+            begin_date += oneDay
         
         self.rows = self.add_header(self.rows)
         return self.rows
+
+        

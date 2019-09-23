@@ -18,7 +18,7 @@ class Trackings:
         url = f"/event-track/{urllib.parse.quote(name)}"
         return self.requisitor.getCustomReport(url, begin_date, end_date)
 
-    def __get_all_trackings(self, refresh = False):
+    def get_all_trackings(self, refresh = False):
         if refresh or not self.all_trackings:
             self.all_trackings = [t for t in self.requisitor.getAllCategories() if t not in trackings_to_ignore]
         return self.all_trackings
@@ -53,10 +53,10 @@ class Trackings:
                 or self.contains_brackets(tracking)
 
     def get_all_wrong_trackings(self):
-        return [tracking for tracking in self.__get_all_trackings() if self.__is_trackings_wrong(tracking)]
+        return [tracking for tracking in self.get_all_trackings() if self.__is_trackings_wrong(tracking)]
 
     def get_all_correct_trackings(self):
-        return [tracking for tracking in self.__get_all_trackings() if not self.__is_trackings_wrong(tracking)]
+        return [tracking for tracking in self.get_all_trackings() if not self.__is_trackings_wrong(tracking)]
 
     def get_all_exhibition_trackings(self):
         return [tracking for tracking in self.get_all_correct_trackings() if not self.is_origin_tracking(tracking) and
