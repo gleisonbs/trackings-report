@@ -45,7 +45,6 @@ report_maker = report_generator()
 report = report_maker.generate()
 
 if output_to == 'google_spreadsheet':
-    pprint(report)
     google_sheets = GoogleSheets()
     spreadsheet = google_sheets.open("PlanilhaTesteIntegracao")
     spreadsheet.values_update(report_name, params={'valueInputOption': 'RAW'}, body={'values': report})
