@@ -19,7 +19,7 @@ class MonthlyReport:
         for t in trackings:
 
             if t['action'].lower() != 'exibicao':
-                return f'invalid:{t["action"]}'
+                continue
 
             storageDate = datetime.strptime(t['storageDate'][:10], '%Y-%m-%d')
             report[(storageDate.year, storageDate.month)] += t['count']
@@ -53,8 +53,10 @@ class MonthlyReport:
         print('Running the "Monthy" report...')
         trackings_names = self.trackings.get_all_exhibition_trackings()
 
+        start_date, final_date = get_date_range()
         for tracking in trackings_names:
-            begin_date, end_date = get_date_range()
+            print(tracking)
+            begin_date, end_date = start_date, final_date
             
             tracking_totals = self.trackings.get_value(tracking, begin_date, end_date)
             grouped_by_months = self.group_by_month(tracking_totals)

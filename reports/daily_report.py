@@ -18,7 +18,7 @@ class DailyReport:
         report = defaultdict(int)
         for t in trackings:
             if t['action'].lower() != 'exibicao':
-                return f'invalid:{t["action"]}'
+                continue
 
             storageDate = datetime.strptime(t['storageDate'][:10], '%Y-%m-%d')
             report[(storageDate.year, storageDate.month, storageDate.day)] += t['count']

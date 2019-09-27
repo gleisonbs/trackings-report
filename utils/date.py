@@ -18,18 +18,24 @@ def get_day_from_date(date):
     return date.day
 
 def get_date_range():
-    try:
-        if len(sys.argv) >= 2:
-            from_date = datetime.strptime(sys.argv[1], '%Y-%m-%d').date()
+    while True:
+        try:
+            #from_date = datetime.strptime(sys.argv[1], '%Y-%m-%d').date()
 
-        to_date = datetime.now().date()
-        if len(sys.argv) >= 3:
-            to_date = datetime.strptime(sys.argv[2], '%Y-%m-%d').date()
+            current_year = datetime.now().date().year
+            start_date = datetime(current_year, 1, 1).date()
+            new_date = input(f'Start date (press enter to use {start_date.strftime("%Y-%m-%d")}): ')
+            if new_date:
+                start_date = datetime.strptime(new_date, "%Y-%m-%d")
 
-        if to_date > datetime.now().date():
             to_date = datetime.now().date()
+            new_date = input(f'End date (press enter to use {to_date.strftime("%Y-%m-%d")}): ')
+            if new_date:
+                to_date = datetime.strptime(new_date, "%Y-%m-%d")
+            
+            if to_date > datetime.now().date():
+                to_date = datetime.now().date()
 
-        return (from_date, to_date)
-    except:
-        year = datetime.now().year
-        return (datetime(year, 1, 1), datetime.now())
+            return (start_date, to_date)
+        except Exception as e:
+            print(f'\n\n{e}\n\n')
